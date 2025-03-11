@@ -257,3 +257,9 @@ button {
     height: 180px;
 }
 /*End Section: Message*/
+
+footer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
