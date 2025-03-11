@@ -263,3 +263,86 @@ footer {
     bottom: 20px;
     right: 20px;
 }
+
+
+/* Tablet Responsive */
+@media screen and (max-width: 1300px) {
+    .main-container {
+        width: 400px;
+        height: auto;
+        min-height: 496px;
+    }
+
+    .weather-conditions-container {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .condition-item {
+        width: 45%;
+    }
+
+    .forecast-items-container {
+        padding-bottom: 20px;
+    }
+
+    .forecast-item {
+        min-width: 85px;
+    }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .main-container {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        min-height: 496px;
+        padding: 15px;
+    }
+
+    .weather-summary-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .weather-summary-info {
+        text-align: center;
+    }
+
+    .weather-conditions-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .condition-item {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .forecast-items-container {
+        gap: 10px;
+    }
+
+    .forecast-item {
+        min-width: 70px;
+        padding: 8px;
+    }
+
+    .section-message img {
+        height: 150px;
+    }
+
+    footer {
+        position: relative;
+        text-align: center;
+        bottom: auto;
+        right: auto;
+        margin-top: 20px;
+    }
+}
