@@ -265,7 +265,7 @@ footer {
 }
 
 
-/* Tablet Responsive */
+/* Tablet Responsive
 @media screen and (max-width: 1300px) {
     .main-container {
         width: 400px;
@@ -291,7 +291,7 @@ footer {
     }
 }
 
-/* Mobile Responsive */
+/* Mobile Responsive 
 @media screen and (max-width: 768px) {
     body {
         padding: 15px;
@@ -345,4 +345,4 @@ footer {
         right: auto;
         margin-top: 20px;
     }
-}
+} */
