@@ -84,16 +84,16 @@ async function updateWeatherInfo(city) {
     weather: [{ id, main }],
     wind: { speed },
   } = weatherData;
-
+  
+  currentDateTxt.textContent = getCurrentDate();
   countryTxt.textContent = country;
   tempTxt.textContent = Math.round(temp) + "°C";
   conditionTxt.textContent = main;
   humidityValueTxt.textContent = humidity + "%";
   windValueTxt.textContent = speed + " M/s";
   weatherSummaryImg.src = `${getWeatherIcon(id)}`;
-  await updateForecastsInfo(city);
-  currentDateTxt.textContent = getCurrentDate();
 
+  await updateForecastsInfo(city);
   showDisplaySection(weatherInfoSection);
 }
 

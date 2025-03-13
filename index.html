@@ -2,19 +2,20 @@
 <html lang="en">
 
 <head>
+    <!-- Meta tags for character encoding and responsive viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
-    <!-- import Google Material Icons -->
+    <!-- Google Material Icons import -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
-
+    <!-- Main container for the weather app -->
     <main class="main-container">
-
+        <!-- Search input section -->
         <header class="input-container">
             <input class="city-input" type="text" placeholder="Search City">
             <button class="search-btn">
@@ -24,8 +25,11 @@
             </button>
         </header>
 
+        <!-- Weather information display section (hidden by default) -->
         <section class="weather-info" style="display: none;">
+            <!-- Location and date information -->
             <div class="location-date-container">
+                <!-- Location display -->
                 <div class="location">
                     <span class="material-symbols-outlined">
                         location_on
@@ -35,6 +39,7 @@
                 <h4 class="date-txt regular-txt">Wed, 28 Feb</h4>
             </div>
 
+            <!-- Current weather summary -->
             <div class="weather-summary-container">
                 <img src="assets/weather/clouds.svg" alt="" class="weather-summary-img">
                 <div class="weather-summary-info">
@@ -42,7 +47,10 @@
                     <h3 class="condition-txt regular-txt">Clouds</h3>
                 </div>
             </div>
+
+            <!-- Weather conditions (humidity and wind) -->
             <div class="weather-conditions-container">
+                <!-- Humidity information -->
                 <div class="condition-item">
                     <span class="material-symbols-outlined">
                         water_drop
@@ -53,6 +61,7 @@
                     </div>
                 </div>
 
+                <!-- Wind speed information -->
                 <div class="condition-item">
                     <span class="material-symbols-outlined">
                         air
@@ -64,32 +73,19 @@
                 </div>
             </div>
 
+            <!-- Weather forecast section -->
             <div class="forecast-items-container">
+                <!-- Forecast items for next 4 days -->
                 <div class="forecast-item">
                     <h5 class="forecast-item-date regular-txt">26 Feb</h5>
                     <img src="assets/weather/thunderstorm.svg" alt="" class="forecast-item-img">
                     <h5 class="forecast-item-temp">29&degC</h5>
                 </div>
-                <div class="forecast-item">
-                    <h5 class="forecast-item-date regular-txt">26 Feb</h5>
-                    <img src="assets/weather/thunderstorm.svg" alt="" class="forecast-item-img">
-                    <h5 class="forecast-item-temp">29&degC</h5>
-                </div>
-                <div class="forecast-item">
-                    <h5 class="forecast-item-date regular-txt">26 Feb</h5>
-                    <img src="assets/weather/thunderstorm.svg" alt="" class="forecast-item-img">
-                    <h5 class="forecast-item-temp">29&degC</h5>
-                </div>
-                <div class="forecast-item">
-                    <h5 class="forecast-item-date regular-txt">26 Feb</h5>
-                    <img src="assets/weather/thunderstorm.svg" alt="" class="forecast-item-img">
-                    <h5 class="forecast-item-temp">29&degC</h5>
-                </div>
-
+                <!-- Additional forecast items... -->
             </div>
-
         </section>
 
+        <!-- Initial search prompt section -->
         <section class="search-city section-message">
             <img src="assets/message/search-city.png" alt="" class="search-city-img">
              <div>
@@ -98,6 +94,7 @@
              </div>
         </section>
 
+        <!-- Error message section for city not found (hidden by default) -->
         <section class="not-found section-message" style="display: none;">
             <img src="assets/message/not-found.png" alt="" class="search-city-img">
              <div>
@@ -106,9 +103,11 @@
              </div>
         </section>
     </main>
+    <!-- Footer section -->
     <footer>
         <p>&copy; 2025 DeadlyS. All rights reserved.</p>
     </footer>
+    <!-- JavaScript file link -->
     <script src="script.js"></script>
 </body>
 
