@@ -97,7 +97,7 @@ body::before {
 .city-input {
     width: 100%;
     padding: 10px 10px;
-    border-radius: 10px;
+    border-radius: 12px;
     border: 3px solid transparent;
     background: rgba(0,0,0,0.15);
     font-weight: 500;
@@ -130,7 +130,7 @@ button {
     color: #0056b3;
     border: none;
     padding: 12px 25px;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
@@ -148,7 +148,7 @@ button {
     flex-direction: column;
     gap: 15px;
     margin-top: 25px;
-    border-radius: 10px;
+    border-radius: 12px;
     border-color: aliceblue;
     background: none
 } 
@@ -160,11 +160,50 @@ button {
 }
 
 .location {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
+/*Local Time*/
+.local-time-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.local-time {
+    display: flex;
+    align-items: center;
+    
+}
+
+.local-time-tooltip {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+    margin-top: 4px;
+}
+
+.location:hover .local-time-tooltip {
+    opacity: 1;
+    visibility: visible;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2px 4px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+}
+
+/*Weather Summary*/
 .weather-summary-container {
     display: flex;
     justify-content: space-between;
@@ -258,6 +297,42 @@ button {
 }
 /*End Section: Message*/
 
+/*Time Box*/
+.time-box {
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+    backdrop-filter: blur(10px);
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.time-box:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.25));
+    box-shadow: 0 10px 40px rgba(31, 38, 135, 0.3);
+}
+
+.time-box .material-symbols-outlined {
+    font-size: 1.6rem;
+    color: white;
+}
+
+#current-time {
+    font-weight: 7800;
+    color: white;
+}
+
+/*CopyRight Footer*/
 footer {
     position: fixed;
     bottom: 20px;

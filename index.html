@@ -35,10 +35,14 @@
                         location_on
                     </span>
                     <h3 class="country-txt">India</h3>
+                    <!-- Add the local time container as a tooltip -->
+                    <div class="local-time-tooltip">
+                        <span class="material-symbols-outlined">schedule</span>
+                        <span class="local-time">--:--:--</span>
+                    </div>
                 </div>
                 <h4 class="current-date-txt regular-txt">Wed, 28 Feb</h4>
             </div>
-
             <!-- Current weather summary -->
             <div class="weather-summary-container">
                 <img src="assets/weather/clouds.svg" alt="" class="weather-summary-img">
@@ -88,21 +92,28 @@
         <!-- Initial search prompt section -->
         <section class="search-city section-message">
             <img src="assets/message/search-city.png" alt="" class="search-city-img">
-             <div>
+            <div>
                 <h1>Search City</h1>
                 <h4 class="regular-txt">Find out the weather conditions of your city</h4>
-             </div>
+            </div>
         </section>
 
         <!-- Error message section for city not found (hidden by default) -->
         <section class="not-found section-message" style="display: none;">
             <img src="assets/message/not-found.png" alt="" class="search-city-img">
-             <div>
+            <div>
                 <h1>Search City</h1>
                 <h4 class="regular-txt">Find out the weather conditions of your city</h4>
-             </div>
+            </div>
         </section>
     </main>
+
+    <!-- Time box -->
+    <div class="time-box">
+        <span class="material-symbols-outlined">schedule</span>
+        <span id="current-time">00:00:00</span>
+    </div>
+
     <!-- Footer section -->
     <footer>
         <p>&copy; 2025 DeadlyS. All rights reserved.</p>

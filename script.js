@@ -85,8 +85,10 @@ async function updateWeatherInfo(city) {
     main: { temp, humidity },
     weather: [{ id, main }],
     wind: { speed },
+    timezone,
   } = weatherData;
-  
+
+  updateLocalTime(timezone);
   currentDateTxt.textContent = getCurrentDate();
   forecastDateTxt.textContent = getCurrentDate();
 
@@ -96,9 +98,38 @@ async function updateWeatherInfo(city) {
   humidityValueTxt.textContent = humidity + "%";
   windValueTxt.textContent = speed + " M/s";
   weatherSummaryImg.src = `${getWeatherIcon(id)}`;
-  
+
   await updateForecastsInfo(city);
   showDisplaySection(weatherInfoSection);
+}
+
+// Update local time
+function updateLocalTime(timezone) {
+  const localTimeElement = document.querySelector(".local-time");
+
+  function updateTime() {
+    const now = new Date();
+    // Convert timezone offset from seconds to milliseconds
+    const localTime = new Date(
+      now.getTime() + timezone * 1000 + now.getTimezoneOffset() * 60 * 1000
+    );
+
+    const time = localTime.toLocaleTimeString("en-US", {
+      hour12: false,
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+
+    localTimeElement.textContent = time;
+  }
+
+  // Update immediately and then every second
+  updateTime();
+  // Clear any existing interval
+  if (window.localTimeInterval) clearInterval(window.localTimeInterval);
+  // Set new interval
+  window.localTimeInterval = setInterval(updateTime, 1000);
 }
 
 async function updateForecastsInfo(city) {
@@ -145,6 +176,24 @@ function updateForecastItems(weatherData) {
 
   forecastItemsContainer.insertAdjacentHTML("beforeend", forecastItem);
 }
+
+//Current time
+function updateTime() {
+  const timeElement = document.getElementById("current-time");
+  const now = new Date();
+  const time = now.toLocaleTimeString("en-US", {
+    hour12: false,
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+  timeElement.textContent = time;
+}
+
+// Update time every second
+setInterval(updateTime, 1000);
+// Initial call to display time immediately
+updateTime();
 
 function showDisplaySection(section) {
   [weatherInfoSection, notFoundSection, searchCitySection].forEach(
