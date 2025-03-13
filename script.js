@@ -13,7 +13,9 @@ const tempTxt = document.querySelector(".temp-txt");
 const conditionTxt = document.querySelector(".condition-txt");
 const humidityValueTxt = document.querySelector(".humidity-value-txt");
 const windValueTxt = document.querySelector(".wind-value-txt");
-const currentDateTxt = document.querySelector(".forecast-item-date");
+
+const currentDateTxt = document.querySelector(".current-date-txt");
+const forecastDateTxt = document.querySelector(".forecast-item-date");
 const weatherSummaryImg = document.querySelector(".weather-summary-img");
 
 const forecastItemsContainer = document.querySelector(
@@ -86,13 +88,15 @@ async function updateWeatherInfo(city) {
   } = weatherData;
   
   currentDateTxt.textContent = getCurrentDate();
+  forecastDateTxt.textContent = getCurrentDate();
+
   countryTxt.textContent = country;
   tempTxt.textContent = Math.round(temp) + "°C";
   conditionTxt.textContent = main;
   humidityValueTxt.textContent = humidity + "%";
   windValueTxt.textContent = speed + " M/s";
   weatherSummaryImg.src = `${getWeatherIcon(id)}`;
-
+  
   await updateForecastsInfo(city);
   showDisplaySection(weatherInfoSection);
 }
