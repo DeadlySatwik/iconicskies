@@ -70,10 +70,14 @@ async function getFetchData(endpoint, city) {
 }
 
 async function updateWeatherInfo(city) {
+  // Show loading state
+  showDisplaySection(weatherInfoSection);
   countryTxt.textContent = "Loading...";
   tempTxt.textContent = "--°C";
   conditionTxt.textContent = "...";
+  
   await new Promise((resolve) => setTimeout(resolve, 500)); // Simulate delay
+  
   const weatherData = await getFetchData("weather", city);
   if (weatherData.cod !== 200) {
     showDisplaySection(notFoundSection);
@@ -88,6 +92,7 @@ async function updateWeatherInfo(city) {
     timezone,
   } = weatherData;
 
+  // Update the weather information
   updateLocalTime(timezone);
   currentDateTxt.textContent = getCurrentDate();
   forecastDateTxt.textContent = getCurrentDate();
