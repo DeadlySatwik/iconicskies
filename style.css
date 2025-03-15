@@ -83,6 +83,7 @@ body::before {
     padding: 20px;
     transition: transform 0.3s ease;
     z-index: 1;
+    
 }
 
 .main-container:hover {
@@ -312,7 +313,7 @@ button {
     align-items: center;
     gap: 8px;
     font-size: 1.1rem;
-    z-index: 1000;
+    z-index: 2;
     transition: all 0.3s ease;
 }
 

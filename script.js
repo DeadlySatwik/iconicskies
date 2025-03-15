@@ -22,6 +22,25 @@ const forecastItemsContainer = document.querySelector(
   ".forecast-items-container"
 );
 
+//Url Animate
+
+let myEmojis = ["☀", "🌧", "☁", "❄", "⛈", "🌫", "🌦"]; // Removed variation selectors
+let animationFrameId;
+
+const urlAnimate = () => {
+  const emoji = myEmojis[Math.floor((Date.now() / 1000) % myEmojis.length)];
+  window.location.hash = encodeURIComponent(emoji);
+  animationFrameId = requestAnimationFrame(urlAnimate);
+};
+
+urlAnimate();
+
+// Cleanup animation when page unloads
+window.addEventListener("unload", () => {
+  cancelAnimationFrame(animationFrameId);
+});
+//Url Animate End
+
 // Handle search button click
 searchBtn.addEventListener("click", () => {
   if (cityInput.value.trim() !== "") {
@@ -75,9 +94,9 @@ async function updateWeatherInfo(city) {
   countryTxt.textContent = "Loading...";
   tempTxt.textContent = "--°C";
   conditionTxt.textContent = "...";
-  
+
   await new Promise((resolve) => setTimeout(resolve, 500)); // Simulate delay
-  
+
   const weatherData = await getFetchData("weather", city);
   if (weatherData.cod !== 200) {
     showDisplaySection(notFoundSection);
