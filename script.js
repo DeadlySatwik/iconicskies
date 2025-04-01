@@ -70,6 +70,47 @@ function getWeatherIcon(id) {
   return "./assets/weather/unknown.svg";
 }
 
+function getTemperatureGradient(temp) {
+  let colors;
+  if (temp <= 0) {
+    // Cold: Blues and whites
+    colors = [
+      "rgba(28, 146, 210, 0.4)",
+      "rgba(116, 215, 238, 0.4)",
+      "rgba(198, 233, 247, 0.4)",
+    ];
+  } else if (temp <= 15) {
+    // Cool: Light blues and greens
+    colors = [
+      "rgba(66, 3, 169, 0.4)",
+      "rgba(144, 186, 252, 0.4)",
+      "rgba(99, 71, 255, 0.4)",
+    ];
+  } else if (temp <= 30) {
+    // Mild: Greens and yellows
+    colors = [
+      "rgba(76, 175, 80, 0.4)",
+      "rgba(156, 204, 101, 0.4)",
+      "rgba(212, 225, 87, 0.4)",
+    ];
+  } else if (temp <= 40) {
+    // Warm: Oranges and yellows
+    colors = [
+      "rgba(255, 152, 0, 0.4)",
+      "rgba(255, 193, 7, 0.4)",
+      "rgba(255, 235, 59, 0.4)",
+    ];
+  } else {
+    // Hot: Oranges and reds
+    colors = [
+      "rgba(244, 67, 54, 0.4)",
+      "rgba(255, 87, 34, 0.4)",
+      "rgba(255, 152, 0, 0.4)",
+    ];
+  }
+  return `linear-gradient(135deg, ${colors.join(", ")})`;
+}
+
 function getCurrentDate() {
   const currentDate = new Date();
   const options = {
@@ -122,6 +163,9 @@ async function updateWeatherInfo(city) {
   humidityValueTxt.textContent = humidity + "%";
   windValueTxt.textContent = speed + " M/s";
   weatherSummaryImg.src = `${getWeatherIcon(id)}`;
+
+  // Update background gradient based on temperature
+  document.body.style.setProperty('--dynamic-gradient', getTemperatureGradient(temp));
 
   await updateForecastsInfo(city);
   showDisplaySection(weatherInfoSection);
