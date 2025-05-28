@@ -1,5 +1,7 @@
 # API Keys and Secrets
 config.js
+!config.prod.js
+!config.example.js
 
 # VS Code settings
 .vscode/*

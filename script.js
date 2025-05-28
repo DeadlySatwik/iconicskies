@@ -1,4 +1,4 @@
-const API_KEY = config.WEATHER_API_KEY;
+const API_KEY = (typeof config !== 'undefined' && config.WEATHER_API_KEY) || "6a3f6a90fbc5f0c2fd94d72387de2fed";
 
 const cityInput = document.querySelector(".city-input");
 const searchBtn = document.querySelector(".search-btn");
