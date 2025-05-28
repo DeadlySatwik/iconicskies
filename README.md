@@ -1,8 +1,6 @@
-# IconicSkies Weather App
+# IconicSkies a Weather App
 
 A beautiful and intuitive weather application that provides real-time weather information and forecasts with dynamic visual effects.
-
-![IconicSkies Screenshot](assets/screenshot.png)
 
 ## Features
 

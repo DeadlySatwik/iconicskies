@@ -118,15 +118,18 @@ function getCurrentDate() {
     day: "2-digit",
     month: "short",
   };
-  console.log(currentDate);
   return currentDate.toLocaleDateString("en-GB", options);
 }
 
 async function getFetchData(endpoint, city) {
-  const apiUrl = `https://api.openweathermap.org/data/2.5/${endpoint}?q=${city}&appid=${API_KEY}&units=metric`;
-
-  const response = await fetch(apiUrl);
-  return response.json();
+    try {
+        const apiUrl = `https://api.openweathermap.org/data/2.5/${endpoint}?q=${city}&appid=${API_KEY}&units=metric`;
+        const response = await fetch(apiUrl);
+        return response.json();
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+        showDisplaySection(notFoundSection);
+    }
 }
 
 async function updateWeatherInfo(city) {
