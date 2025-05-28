@@ -1,4 +1,4 @@
-const apiKey = "6a3f6a90fbc5f0c2fd94d72387de2fed";
+const API_KEY = process.env.WEATHER_API_KEY;
 
 const cityInput = document.querySelector(".city-input");
 const searchBtn = document.querySelector(".search-btn");
