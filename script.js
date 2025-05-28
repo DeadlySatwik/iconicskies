@@ -1,4 +1,4 @@
-const API_KEY = process.env.WEATHER_API_KEY;
+const API_KEY = config.WEATHER_API_KEY;
 
 const cityInput = document.querySelector(".city-input");
 const searchBtn = document.querySelector(".search-btn");
@@ -123,7 +123,7 @@ function getCurrentDate() {
 }
 
 async function getFetchData(endpoint, city) {
-  const apiUrl = `https://api.openweathermap.org/data/2.5/${endpoint}?q=${city}&appid=${apiKey}&units=metric`;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/${endpoint}?q=${city}&appid=${API_KEY}&units=metric`;
 
   const response = await fetch(apiUrl);
   return response.json();
